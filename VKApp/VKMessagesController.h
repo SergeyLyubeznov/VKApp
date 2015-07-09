@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationController.h"
 
-@interface VKMessagesController : UIViewController
+
+@interface VKMessagesController : UIViewController<SlideNavigationControllerDelegate>
+
+
+
 
 @end

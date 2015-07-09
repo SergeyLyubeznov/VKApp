@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VKImageModel.h"
 
-@interface VKMessageCell : UITableViewCell
+@interface VKMessageCell : UITableViewCell <VKModelsProtocolDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageTitleLabel;
+@property (weak, nonatomic) IBOutlet UIView *cellIndicatorView;
+@property (strong, nonatomic) VKImageModel *imageModel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+- (void)initImageModel;
 
 @end

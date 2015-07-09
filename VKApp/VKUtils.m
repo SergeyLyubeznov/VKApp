@@ -7,7 +7,3 @@
 //
 
 #import "VKUtils.h"
-
-@implementation VKUtils
-
-@end

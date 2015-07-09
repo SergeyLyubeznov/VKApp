@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationController.h"
+#import "VKLeftMenuController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

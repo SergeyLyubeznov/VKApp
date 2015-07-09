@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VKDialogCell : UITableViewCell
+@interface VKDialogMyCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *myMessageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *myDateMessageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rowLabel;
+
 
 @end

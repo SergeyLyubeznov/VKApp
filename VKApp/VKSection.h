@@ -10,4 +10,7 @@
 
 @interface VKSection : NSObject
 
+@property (strong, nonatomic) NSString *sectionName;
+@property (strong, nonatomic) NSMutableArray *items;
+
 @end

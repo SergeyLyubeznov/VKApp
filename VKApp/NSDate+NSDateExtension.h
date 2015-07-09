@@ -10,4 +10,7 @@
 
 @interface NSDate (NSDateExtension)
 
+- (NSDate *)toLocalTime;
+- (NSDate *)toGlobalTime;
+
 @end

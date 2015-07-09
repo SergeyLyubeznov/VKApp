@@ -8,6 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VKUtils : NSObject
-
-@end
+#define mainStoryboard()[UIStoryboard storyboardWithName:@"Main" bundle:nil]

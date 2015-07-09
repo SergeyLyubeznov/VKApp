@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationController.h"
 
-@interface VKDialogController : UIViewController
+@class VKMessagesModel;
+
+@interface VKDialogController : UIViewController<SlideNavigationControllerDelegate>
+
+@property (strong, nonatomic) VKMessagesModel *models;
 
 @end

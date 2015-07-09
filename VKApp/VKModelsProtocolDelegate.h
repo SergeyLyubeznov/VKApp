@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VKModelsProtocolDelegate : NSObject
+@protocol VKModelsProtocolDelegate <NSObject>
+
+@optional
+- (void)processCompleted;
+- (void)processCompletedImage;
 
 @end

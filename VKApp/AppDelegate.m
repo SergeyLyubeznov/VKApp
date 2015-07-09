@@ -7,6 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "SlideNavigationContorllerAnimatorFade.h"
+
+#import <VKSdk/VKSdk.h>
+
+// return true if the device has a retina display, false otherwise
+#define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0f
+
+// return the scale value based on device's display (2 retina, 1 other)
+#define DISPLAY_SCALE IS_RETINA_DISPLAY() ? 2.0f : 1.0f
+
+// if the device has a retina display return the real scaled pixel size, otherwise the same size will be returned
+#define PIXEL_SIZE(size) IS_RETINA_DISPLAY() ? CGSizeMake(size.width/2.0f, size.height/2.0f) : size
+
+
 
 @interface AppDelegate ()
 
@@ -14,9 +28,50 @@
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
+    
+    
+    return YES;
+    
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+   
+    NSLog(@"isRetina = %d",IS_RETINA_DISPLAY());
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    
+    VKLeftMenuController *leftMenu = (VKLeftMenuController*)[mainStoryboard
+                                                             instantiateViewControllerWithIdentifier: @"VKLeftMenuController"];
+    
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .3;
+    [SlideNavigationController sharedInstance].menuRevealAnimator = [[SlideNavigationContorllerAnimatorFade alloc] init];
+
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Closed %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Opened %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Revealed %@", menu);
+    }];
+
+    
+    
+    
     return YES;
 }
 

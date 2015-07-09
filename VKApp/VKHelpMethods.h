@@ -10,4 +10,7 @@
 
 @interface VKHelpMethods : NSObject
 
++ (NSString *)getStringDateByTimeInterval:(double)timeInterval;
++ (NSString *)getStringDateByDate:(NSDate *)date;
+
 @end

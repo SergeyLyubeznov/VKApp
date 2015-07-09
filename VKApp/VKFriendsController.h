@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <VKSdk/VKSdk.h>
+#import "SlideNavigationController.h"
+#import "VKModels.h"
 
-@interface VKFriendsController : UITableViewController
+@interface VKFriendsController : UIViewController<SlideNavigationControllerDelegate>
+
+@property (strong, nonatomic) NSString *userID;
+@property (assign, nonatomic) kVKUsersGroup userGroup;
+@property (strong, nonatomic) VKModels *models;
 
 @end

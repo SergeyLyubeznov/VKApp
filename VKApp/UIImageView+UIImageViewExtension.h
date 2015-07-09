@@ -10,4 +10,6 @@
 
 @interface UIImageView (UIImageViewExtension)
 
+- (void)setCornerRadius:(CGFloat)radius andBorderWidth:(CGFloat)width andBorderColor:(UIColor *)color;
+
 @end

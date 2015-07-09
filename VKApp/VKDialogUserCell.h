@@ -10,4 +10,8 @@
 
 @interface VKDialogUserCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *userMessageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userDateMessageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rowLabel;
+
 @end

@@ -10,4 +10,8 @@
 
 @interface VKLeftMenuCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *picImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end

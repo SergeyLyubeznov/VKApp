@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "VKModelsProtocolDelegate.h"
 
 @interface VKImageModel : NSObject
+
+@property (strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) UIImage *image;
+@property (weak, nonatomic) id<VKModelsProtocolDelegate> delegate;
+
+- (void)load;
 
 @end

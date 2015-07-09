@@ -10,4 +10,13 @@
 
 @implementation UIImageView (UIImageViewExtension)
 
+- (void)setCornerRadius:(CGFloat)radius andBorderWidth:(CGFloat)width andBorderColor:(UIColor *)color {
+    
+    self.layer.cornerRadius = radius;
+    self.layer.borderColor = color.CGColor;
+    self.layer.borderWidth = width;
+    self.clipsToBounds = YES;
+    
+}
+
 @end
